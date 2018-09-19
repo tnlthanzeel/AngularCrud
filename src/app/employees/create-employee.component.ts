@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent implements OnInit {
-
-@ViewChild('employeeForm') public createEmployeeForm: NgForm;
+  @ViewChild('employeeForm')
+  public createEmployeeForm: NgForm;
 
   previewPhoto = false;
   // gender = 'male'; //select radio button by default
@@ -65,9 +65,10 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit() {}
 
-  public saveEmployee(): void {
+  public saveEmployee(newEmployeeForm: NgForm): void {
     // console.log(data); //prints the entire property of the form
     this._employeeService.save(this.employee);
-    this._route.navigate(['list']);
+    newEmployeeForm.reset();
+    // this._route.navigate(['list']);
   }
 }

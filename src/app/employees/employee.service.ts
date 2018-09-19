@@ -44,6 +44,11 @@ export class EmployeeService {
   public getAllEmployees(): Employee[] {
     return this.employees;
   }
+
+  public getEmployeeById(id: number): Employee {
+    return this.employees.find(x => x.id === id);
+  }
+
   public save(employee: Employee): void {
     this.employees.push(employee);
   }

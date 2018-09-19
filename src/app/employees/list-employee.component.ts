@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee.models';
 import { EmployeeService } from 'src/app/employees/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   // selector: 'app-list-employee', becouse its defined in routes
@@ -11,7 +12,10 @@ export class ListEmployeeComponent implements OnInit {
   employees: Employee[];
   arrayIndex = 1;
   employeeToDisplay: Employee;
-  constructor(private _employeeService: EmployeeService) {}
+  constructor(
+    private _employeeService: EmployeeService,
+    private _route: Router
+  ) {}
 
   ngOnInit() {
     this.employees = this._employeeService.getAllEmployees();
@@ -26,5 +30,9 @@ export class ListEmployeeComponent implements OnInit {
       this.employeeToDisplay = this.employees[0];
       this.arrayIndex = 1;
     }
+  }
+
+  onClick(employeeId: number): void {
+    this._route.navigate(['/employees', employeeId]);
   }
 }
