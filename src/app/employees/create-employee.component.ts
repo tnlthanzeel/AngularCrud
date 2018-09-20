@@ -67,8 +67,9 @@ export class CreateEmployeeComponent implements OnInit {
 
   public saveEmployee(newEmployeeForm: NgForm): void {
     // console.log(data); //prints the entire property of the form
-    this._employeeService.save(this.employee);
+    const newEmployeeObj: Employee = Object.assign({}, this.employee);
+    this._employeeService.save(newEmployeeObj);
     newEmployeeForm.reset();
-    // this._route.navigate(['list']);
+    this._route.navigate(['list']);
   }
 }

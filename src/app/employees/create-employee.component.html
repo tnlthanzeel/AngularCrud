@@ -101,7 +101,8 @@
           <label for="confirmPassword" class="control-label">Confirm Password</label>
           <input appConfirmEqualValidator="password" type="password" name="confirmPassword" [(ngModel)]="employee.confirmPassword"
             #confirmPassword="ngModel" required class="form-control">
-          <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword?.errors?.required">Confirm password
+          <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword?.errors?.required">Confirm
+            password
             is required</span>
           <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword?.errors?.notEqual && !confirmPassword.errors?.required">Password
             and Confirm password does not match</span>
@@ -115,6 +116,6 @@
   </div>
 </form>
 
-Angualar generated model: {{employeeForm.value|json}}
+Angualar generated model: {{employeeForm.value | json}}
 <br />
 <br /> Our own model: {{employee | json}}

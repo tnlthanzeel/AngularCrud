@@ -17,7 +17,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DisplayEmployeeComponent implements OnInit, OnChanges {
   @Input()
   employee: Employee;
-  private selectedEmployeeId: number;
+  protected selectedEmployeeId: number;
   constructor(private _route: ActivatedRoute) {}
 
   ngOnInit() {
